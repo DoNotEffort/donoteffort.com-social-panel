@@ -1,0 +1,53 @@
+@import "./colors";
+
+@function reverse($colorName) {
+  @if $colorName == "dark" {
+    @return map-get($mainColors,"light");
+  } @else {
+    @return map-get($mainColors,"dark");
+  }
+}
+
+@each $mainColorName, $mainColor in $mainColors {
+
+  html.#{$mainColorName}-mode body {
+    color: reverse($mainColorName);
+  }
+  
+  @if $mainColorName == "dark" {
+    html.#{$mainColorName}-mode body {
+      background-color: lighten($mainColor, 5%);
+    }
+  } @else {
+    html.#{$mainColorName}-mode body {
+      background-color: darken($mainColor, 5%);
+    }
+  }
+
+  //----------------------------------------------------
+  
+  .#{$mainColorName}-mode .background-color {
+    background-color: #{$mainColor};
+    color: reverse($mainColorName);
+  }
+
+  .#{$mainColorName}-mode .fill {
+    fill: #{$mainColor};
+  }
+
+  //----------------------------------------------------
+
+  html.#{$mainColorName}-mode ::-webkit-scrollbar-track {
+    background: #{$mainColor};
+  }
+
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #{$sideColor};
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #{lighten($sideColor, 10%)};
+}

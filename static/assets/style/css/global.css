@@ -1,0 +1,20 @@
+body{
+	margin:0;
+	font-family: Arial, sans-serif;
+}
+
+.st{
+	color: #9271E7;
+}
+.bg-st{
+	background-color: #9271E7;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
