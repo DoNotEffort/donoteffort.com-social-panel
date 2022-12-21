@@ -14,6 +14,11 @@ export default {
         )
     ]
   },
+
+  env:{
+    MAINTENANCE: process.env.MAINTENANCE,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'template',
